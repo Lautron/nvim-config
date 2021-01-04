@@ -21,10 +21,9 @@ let mapleader = " "
 let NERDTreeQuitOnOpen=1
 
 nmap <Leader>nt :NERDTreeFind<CR>
-nmap <Leader>wq :wq<CR>
 nmap <Leader>rp :w <bar> :! python %<CR>
 nmap <Leader>y "+y<CR>
 nmap <Leader>p "+p<CR>
 
-
-
+:nmap <Leader>cs :!sassc % %:r.css<CR>
+autocmd BufWritePost,FileWritePost *.scss :silent :!sassc % %:r.css
