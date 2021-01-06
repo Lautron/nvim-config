@@ -10,6 +10,7 @@ set showmatch
 set sw=4
 set relativenumber
 set laststatus=2
+:filetype on
 call plug#begin('~/.nvim/plugged')
 Plug 'arcticicestudio/nord-vim' 
 Plug 'preservim/nerdtree'
@@ -26,4 +27,5 @@ nmap <Leader>y "+y<CR>
 nmap <Leader>p "+p<CR>
 
 :nmap <Leader>cs :!sassc % %:r.css<CR>
-autocmd BufWritePost,FileWritePost *.scss :silent :!sassc % %:r.css
+autocmd BufWritePost,FileWritePost *.scss :!sassc % %:r.css
+autocmd BufWritePost,FileWritePost *.mom :silent :!pdfmom -e % > %:r.pdf
