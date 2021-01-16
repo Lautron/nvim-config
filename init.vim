@@ -13,9 +13,13 @@ set laststatus=2
 :filetype on
 call plug#begin('~/.nvim/plugged')
 Plug 'arcticicestudio/nord-vim' 
-Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+            \ Plug 'ryanoasis/vim-devicons'
+
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 colorscheme nord
 let mapleader = " "
