@@ -33,3 +33,4 @@ nmap <Leader>p "+p<CR>
 :nmap <Leader>cs :!sassc % %:r.css<CR>
 autocmd BufWritePost,FileWritePost *.scss :!sassc % %:r.css
 autocmd BufWritePost,FileWritePost *.mom :silent :!pdfmom -e % > %:r.pdf
+autocmd BufWritePost,FileWritePost *.ms :silent :!groff -e -ms % -T pdf > %:r.pdf
