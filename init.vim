@@ -20,6 +20,23 @@ Plug 'preservim/nerdtree' |
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-fugitive'
+Plug 'sirver/ultisnips'
+    let g:UltiSnipsExpandTrigger = '<tab>'
+    let g:UltiSnipsJumpForwardTrigger = '<tab>'
+    let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+    let g:UltiSnipsSnippetDirectories = ['~/.nvim/plugged/vim-snippets/UltiSnips']
+Plug 'lervag/vimtex'
+    let g:tex_flavor='latex'
+    let g:vimtex_view_method='zathura'
+    let g:vimtex_quickfix_mode=0
+
+Plug 'KeitaNakamura/tex-conceal.vim'
+    set conceallevel=1
+    let g:tex_conceal='abdmg'
+    hi Conceal ctermbg=none
+
+Plug 'honza/vim-snippets'
+
 call plug#end()
 colorscheme nord
 let mapleader = " "
@@ -34,3 +51,5 @@ nmap <Leader>p "+p<CR>
 autocmd BufWritePost,FileWritePost *.scss :!sassc % %:r.css
 autocmd BufWritePost,FileWritePost *.mom :silent :!pdfmom -e % > %:r.pdf
 autocmd BufWritePost,FileWritePost *.ms :silent :!groff -e -ms % -T pdf > %:r.pdf
+autocmd BufWritePost,FileWritePost *.pmd :silent :!pandoc -f markdown -t latex % -o %:r.pdf
+autocmd BufRead,BufNewFile *.pmd setfiletype pandocmd
