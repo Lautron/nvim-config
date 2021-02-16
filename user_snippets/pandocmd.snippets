@@ -93,17 +93,17 @@ endsnippet
 # Text formatting #
 ###################
 
-snippet * "italics"
-*${1:${VISUAL}}*$0
-endsnippet
-
-snippet ** "bold"
-**${1:${VISUAL}}**$0
-endsnippet
-
-snippet *** "bold italics"
-***${1:${VISUAL}}***$0
-endsnippet
+#snippet * "italics"
+#*${1:${VISUAL}}*$0
+#endsnippet
+#
+#snippet ** "bold"
+#**${1:${VISUAL}}**$0
+#endsnippet
+#
+#snippet *** "bold italics"
+#***${1:${VISUAL}}***$0
+#endsnippet
 
 snippet /* "Comment"
 <!-- ${1:${VISUAL}} -->$0
@@ -156,6 +156,59 @@ endsnippet
 
 # vim:ft=snippets:
 
+###########################
+##### Custom snippets #####
+###########################
+
+snippet qeq "Quad equal Quad"
+\quad = \quad 
+endsnippet
+
+snippet brac "Brackets"
+\\{ $1 \\}
+endsnippet
+
+snippet venn "Venn diagrams"
+
+$1) 
+
+\begin{center}
+    \includegraphics[width=100px]{$1}
+\end{center}
+
+$2
+endsnippet
+
+snippet comp<< "Comprension de conjunto"
+\\{x \in U|$1 < x < $2 \\}
+endsnippet
+
+snippet comp<= "Comprension de conjunto"
+\\{x \in U|$1 \leq x \leq $2 \\}
+endsnippet
+
+snippet qqb "Quad quad box"
+\quad \quad \boxed{$1}
+endsnippet
+
+
+snippet venncap "Venn diagram with caption"
+
+$1) 
+
+\begin{center}
+\begin{tabular}{c}
+\includegraphics[width= 100px]{$1} \\\\
+ $$2$ \\\\
+ \end{tabular}
+\end{center}
+
+
+endsnippet
+
+###########################
+##### LaTeX snippets #####
+###########################
 
 snippet template "Basic template" b
 \documentclass[a4paper]{article}
@@ -275,11 +328,11 @@ endsnippet
 
 context "math()"
 snippet // "Fraction" iA
-\\frac{$1}{$2}$0
+\\frac{${VISUAL}}{$1}$0
 endsnippet
 
 snippet / "Fraction" i
-\\frac{${VISUAL}}{$1}$0
+\\frac{$1}{$2}$0
 endsnippet
 
 context "math()"
@@ -470,7 +523,7 @@ snippet rij "mrij" i
 (${1:x}_${2:n})_{${3:$2}\\in${4:\\N}}$0
 endsnippet
 
-snippet <= "leq" iA
+snippet <= "leq" 
 \le 
 endsnippet
 
@@ -575,8 +628,8 @@ snippet xx "cross" iA
 endsnippet
 
 priority 100
-snippet ** "cdot" iA
-\cdot 
+snippet '([a-zA-Z])\*\*' "Potence"
+`!p snip.rv = match.group(1)`^$1 
 endsnippet
 
 context "math()"
@@ -639,7 +692,7 @@ snippet >> ">>" iA
 \gg
 endsnippet
 
-snippet << "<<" iA
+snippet << "<<"
 \ll
 endsnippet
 
@@ -697,15 +750,15 @@ snippet OO "emptyset" iA
 endsnippet
 
 snippet RR "real" iA
-\R
+\mathbb{R}
 endsnippet
 
 snippet QQ "Q" iA
-\Q
+\mathbb{Q}
 endsnippet
 
 snippet ZZ "Z" iA
-\Z
+\mathbb{Z}
 endsnippet
 
 snippet <! "normal" iA
